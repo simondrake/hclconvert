@@ -1,13 +1,13 @@
-package json
+package yaml
 
 import (
-	"encoding/json"
 	"fmt"
 	"io"
 	"os"
 
 	"github.com/hashicorp/hcl"
 	"github.com/spf13/cobra"
+	"gopkg.in/yaml.v2"
 )
 
 func newFromHCLCommand() *cobra.Command {
@@ -34,13 +34,13 @@ func newFromHCLCommand() *cobra.Command {
 				os.Exit(1)
 			}
 
-			j, err := json.MarshalIndent(a, "", "	")
+			y, err := yaml.Marshal(a)
 			if err != nil {
 				fmt.Fprintln(os.Stderr, fmt.Errorf("unable to convert hcl file to json: %w", err))
 				os.Exit(1)
 			}
 
-			fmt.Fprintln(os.Stdout, string(j))
+			fmt.Fprintln(os.Stdout, string(y))
 		},
 	}
 

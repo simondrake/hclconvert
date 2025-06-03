@@ -1,15 +1,14 @@
-package json
+package yaml
 
 import "github.com/spf13/cobra"
 
 func NewCommand() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "json",
-		Short: "json related commands",
+		Use:   "yaml",
+		Short: "yaml related commands",
 	}
 
 	cmd.AddCommand(newFromHCLCommand())
-	cmd.AddCommand(newToHCLCommand())
 
 	return cmd
 }
