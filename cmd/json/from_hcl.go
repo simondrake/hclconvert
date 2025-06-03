@@ -44,7 +44,7 @@ func newFromHCLCommand() *cobra.Command {
 		},
 	}
 
-	stackDiffCmd.Flags().StringVar(&filePath, "file_path", "", "the path of the hcl file")
+	stackDiffCmd.Flags().StringVarP(&filePath, "file_path", "f", "", "the path of the hcl file")
 
 	stackDiffCmd.MarkFlagRequired("file_path")
 
